@@ -1,6 +1,6 @@
-<h1>List</h1>
+<h1>Home Page</h1>
 
-{{#each hotels}}
+{{#each pictures}}
 <a href="/details?id={{this._id}}">
     <fieldset>
     <legend>{{this.title}}</legend>
@@ -10,3 +10,6 @@
 </fieldset>
 </a>
 {{/each}}
+
+<a href="/list?page={{pages.prevPage}}"><button>Prev</button></a>
+<a href="/list?page={{pages.nextPage}}"><button>Next</button></a>
