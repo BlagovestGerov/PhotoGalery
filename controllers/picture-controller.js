@@ -30,8 +30,34 @@ module.exports = {
         let targetPicture = req.query.id
 
         Picture.findById(targetPicture).then(selectedPicture => {
+           selectedPicture.prop = selectedPicture.like.length
 
-            res.render('pictures/details', {selectedPicture})
+            selectedPicture.viewCounter += 1
+            selectedPicture.save().then(()=>{
+
+            res.render('pictures/details', {selectedPicture})    
+            })                
+        })
+    },
+    likeDislike: (req, res)=>{
+        let pictureId = req.params.id
+
+        Picture.findById(pictureId).then((selectedPicture)=>{
+            let userId = req.user_id
+            let indexOfElem = selectedPicture.like.indexOf(userId)
+
+            if(indexOfElem >= 0){
+                selectedPicture.like.splice(indexOfElem, 1)
+            }else{
+                selectedPicture.like.push(userId)
+            }
+
+            selectedPicture.save().then((e) => {
+                if(e){
+                    console.log(e)
+                }
+                res.redirect('back')
+            })
         })
     }
 }

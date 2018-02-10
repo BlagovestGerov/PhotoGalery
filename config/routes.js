@@ -20,6 +20,7 @@ module.exports = app =>{
     app.post('/addPicture', controllers.picture.addPicture)
 
     app.get('/details', controllers.picture.getDetails)
+    app.get('/like/:id', controllers.picture.likeDislike)
     
     app.all('*', (req,res)=>{
         res.status(404)

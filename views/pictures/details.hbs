@@ -6,8 +6,14 @@
     <img class="hotelImg" src="{{selectedPicture.image}}" alt="hotel image">   
     <p>{{selectedPicture.description}}</p>
 <div>
+    {{#if currentUser}}
         <a  href="like/{{selectedPicture._id}}"><img class="likeBtn" src="/img/like-button-png-2.png" alt="like"></a>
+       {{else}}
+       <img class="likeBtn" src="/img/like-button-png-2.png" alt="like">
+       {{/if}}
         <span>{{selectedPicture.prop}}</span>
+            <p>{{selectedPicture.viewCounter }}</p>
+        
 </div>
     
 </fieldset>
