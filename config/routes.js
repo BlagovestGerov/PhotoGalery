@@ -25,6 +25,9 @@ module.exports = app =>{
     //comment
     app.post('/comment/:id',controllers.comment.addComment)
     
+    //list
+    app.get('/list', controllers.picture.getList)
+    
     app.all('*', (req,res)=>{
         res.status(404)
         res.send('404 NOT Found')

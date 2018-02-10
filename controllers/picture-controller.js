@@ -71,5 +71,36 @@ module.exports = {
                 res.redirect('back')
             })
         })
-    }
+    },
+    getList:(req,res)=>{
+
+            let page = Number(req.query.page) || 1
+    
+             //limit = 2 for test purpose        
+            let limit = 2
+            
+            Picture.count({}).then(pictureCount =>{
+
+            let maxPages = Math.ceil(pictureCount/limit)
+            
+                if(page > maxPages){
+                    page = maxPages
+                }
+                if(page < 0){
+                    page = 1
+                }
+
+                //TODO if last page, nextPage button to be last, to exist or something logic for user exerience
+                let pages = {
+                    nextPage: page +1 > maxPages?maxPages:page+1,
+                    prevPage: page -1 < 1 ? 1 : page-1
+                }
+
+            Picture.find({}).skip((page - 1)* limit).limit(limit).then(pictures =>{
+                    
+                res.render('pictures/pictureList', {pictures, pages})
+
+                })
+            })
+        }
 }
