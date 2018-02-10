@@ -6,8 +6,12 @@
       <input type="text" name='image' placeholder="Image Url" />
 
       <select class='picker' name="type">
-      <option value="Fancy">Fancy</option>
-      <option value="Not Fancy">Not Fancy</option>
+
+        {{#each categories}}
+              <option value="{{this.categoryName}}">{{this.categoryName}}</option>
+
+        {{/each}}
+
       </select>
       <br>
       <br>

@@ -1,4 +1,5 @@
 const Picture = require('mongoose').model('Picture')
+const Category = require('mongoose').model('Category')
 
 module.exports = {
 
@@ -15,8 +16,15 @@ module.exports = {
 
         }
 
-        Picture.create(pictureObj).then((h)=>{
-            res.render('pictures/generatePicture',{successMessage:'All is O.K.'})
+        Picture.create(pictureObj)
+        .then((h)=>{
+            Category.findOne({categoryName: req.body.type})
+            .then(foundCategory =>{
+                foundCategory.pictures.push(h._id)
+                foundCategory.save().then(()=>{
+                res.render('pictures/generatePicture',{successMessage:'All is O.K.'})            
+                })
+            }) 
         }).catch(e=>{
             res.locals.globalError = e.message 
             res.render('pictures/generatePicture')
@@ -24,7 +32,10 @@ module.exports = {
 
     },
     getAddPictureView: (req, res)=>{
-        res.render('pictures/generatePicture')
+        Category.find({}).then(categories => {
+
+            res.render('pictures/generatePicture', { categories})            
+        })
     },
     getDetails:(req,res)=>{
         let targetPicture = req.query.id

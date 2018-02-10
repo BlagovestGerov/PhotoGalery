@@ -24,6 +24,9 @@ module.exports = app =>{
 
     //comment
     app.post('/comment/:id',controllers.comment.addComment)
+
+    app.get('/addCategories', controllers.categories.getView)
+    app.post('/addCategories', controllers.categories.createCategory)
     
     //list
     app.get('/list', controllers.picture.getList)
