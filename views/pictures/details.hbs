@@ -1,20 +1,20 @@
 <h1>Home Page</h1>
 
 <fieldset>
-    <legend>{{selectedHotel.title}}</legend>
-    <p>{{selectedHotel.location}}</p>
-    <img class="hotelImg" src="{{selectedHotel.image}}" alt="hotel image">   
-    <p>{{selectedHotel.description}}</p>
+    <legend>{{selectedPicture.title}}</legend>
+    <p>{{selectedPicture.location}}</p>
+    <img class="hotelImg" src="{{selectedPicture.image}}" alt="hotel image">   
+    <p>{{selectedPicture.description}}</p>
 <div>
-        <a  href="like/{{selectedHotel._id}}"><img class="likeBtn" src="/img/like-button-png-2.png" alt="like"></a>
-        <span>{{selectedHotel.prop}}</span>
+        <a  href="like/{{selectedPicture._id}}"><img class="likeBtn" src="/img/like-button-png-2.png" alt="like"></a>
+        <span>{{selectedPicture.prop}}</span>
 </div>
     
 </fieldset>
 
 <div class="login-page">
     <div class="form">
-        <form action="/comment/{{selectedHotel._id}}" method="POST" class="create-form">
+        <form action="/comment/{{selectedPicture._id}}" method="POST" class="create-form">
             <input type="text" name='title' placeholder="Title" />
             <textarea name="comment" id="" cols="35" rows="10" placeholder="comment"></textarea>
             <br>

@@ -1,11 +1,11 @@
 <h1>List</h1>
 
-{{#each hotels}}
+{{#each pictures}}
 <a href="/details?id={{this._id}}">
     <fieldset>
     <legend>{{this.title}}</legend>
     <p>{{this.location}}</p>
-    <img class="hotelImg" src="{{this.image}}" alt="hotel image">
+    <img class="pictureImg" src="{{this.image}}" alt="picture image">
     <p>{{this.description}}</p>
 </fieldset>
 </a>

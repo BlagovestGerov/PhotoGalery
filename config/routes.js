@@ -17,7 +17,10 @@ module.exports = app =>{
     
     //Add Picture
     app.get('/addPicture', controllers.picture.getAddPictureView)
+    app.post('/addPicture', controllers.picture.addPicture)
 
+    app.get('/details', controllers.picture.getDetails)
+    
     app.all('*', (req,res)=>{
         res.status(404)
         res.send('404 NOT Found')
