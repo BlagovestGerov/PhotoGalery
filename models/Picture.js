@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const ObjectId = mongoose.Schema.Types.ObjectId
+const commentSchema = mongoose.model('Comment').schema
 //TODO 
-//category required
+//category = category required
 
 const picture = new mongoose.Schema({
     title: {type: String, required: true},
@@ -11,6 +12,7 @@ const picture = new mongoose.Schema({
     description:{type:String},
     like:[{type: ObjectId, ref: 'User'}],
     viewCounter:{type:Number, default: 0},
-    dateCreation: {type: Date, required: true}
+    dateCreation: {type: Date, required: true},
+    comments: [commentSchema]
 })
 module.exports = mongoose.model('Picture', picture)

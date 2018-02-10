@@ -21,6 +21,9 @@ module.exports = app =>{
 
     app.get('/details', controllers.picture.getDetails)
     app.get('/like/:id', controllers.picture.likeDislike)
+
+    //comment
+    app.post('/comment/:id',controllers.comment.addComment)
     
     app.all('*', (req,res)=>{
         res.status(404)

@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 mongoose.Promise = global.Promise 
 
 const User = require('../models/User')
+const Comment = require('../models/Comment')
 const Picture = require('../models/Picture')
 
 module.exports = config =>{

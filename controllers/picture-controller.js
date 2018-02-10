@@ -29,13 +29,25 @@ module.exports = {
     getDetails:(req,res)=>{
         let targetPicture = req.query.id
 
-        Picture.findById(targetPicture).then(selectedPicture => {
+        Picture.findById(targetPicture).populate('comments.creator').then(selectedPicture => {
            selectedPicture.prop = selectedPicture.like.length
 
             selectedPicture.viewCounter += 1
             selectedPicture.save().then(()=>{
 
-            res.render('pictures/details', {selectedPicture})    
+
+                let comments = []
+            for (let elem of selectedPicture.comments){
+                let tempObj = {
+                    userName: elem.creator.username,
+                    userComment: elem.description,
+                    userTitle: elem.title,
+                    datePosted: elem.creationDate.toUTCString()
+                }
+                comments.push(tempObj)
+            }
+            
+            res.render('pictures/details', {selectedPicture, comments})    
             })                
         })
     },
