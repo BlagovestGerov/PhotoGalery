@@ -3,7 +3,7 @@
 <fieldset>
     <legend>{{selectedPicture.title}}</legend>
     <p>{{selectedPicture.location}}</p>
-    <img class="hotelImg" src="{{selectedPicture.image}}" alt="hotel image">   
+    <img class="pictureImg" src="{{selectedPicture.image}}" alt="picture image">   
     <p>{{selectedPicture.description}}</p>
 <div>
     {{#if currentUser}}
@@ -27,7 +27,7 @@
 
 <fieldset>
     <legend>
-        <p>{{this.userName}}</p>
+        <a href="/getDetails/{{this.creator}}"> <p>{{this.userName}}</p> </a>
     </legend>
     <p>{{this.userTitle}}</p>
     <p>{{this.userComment}}</p>

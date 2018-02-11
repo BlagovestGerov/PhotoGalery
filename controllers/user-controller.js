@@ -72,5 +72,20 @@ module.exports = {
                 res.render('users/login')
             }
 
+    },
+    getDetails:(req,res)=>{
+        User.findById(req.params.id).then((u)=>{
+            res.render('users/details', {u})
+        })
+    },
+    banUser:(req,res)=>{
+        User.findById(req.params.id).then(u=>{
+
+                u.blocked = !u.blocked
+
+                u.save().then(()=>{
+                    res.redirect('/')
+             })
+        })
     }
 }

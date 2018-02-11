@@ -50,6 +50,7 @@ module.exports = {
                 let comments = []
             for (let elem of selectedPicture.comments){
                 let tempObj = {
+                    creator: elem.creator._id,
                     userName: elem.creator.username,
                     userComment: elem.description,
                     userTitle: elem.title,

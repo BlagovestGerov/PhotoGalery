@@ -4,7 +4,7 @@ const restrictedPages = require('./auth')
 module.exports = app =>{
     app.get('/', controllers.home.index)
 
-    //Example how to you Authentication or Role
+    //Example how to use Authentication or Role
     app.get('/about', restrictedPages.isAuthenticated, controllers.home.about)
     // app.get('/about', restrictedPages.hasRole('Admin'), controllers.home.about)
     
@@ -30,6 +30,9 @@ module.exports = app =>{
     
     //list
     app.get('/list', controllers.picture.getList)
+
+    app.get('/getDetails/:id',controllers.user.getDetails)
+    app.get('/banUser/:id',restrictedPages.hasRole('Admin'), controllers.user.banUser)
     
     app.all('*', (req,res)=>{
         res.status(404)

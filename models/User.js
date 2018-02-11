@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
     firstName: {type: mongoose.Schema.Types.String },
     lastName: {type: mongoose.Schema.Types.String},
     salt: {type: mongoose.Schema.Types.String, required: true },
-    roles: [{ type: mongoose.Schema.Types.String }]
+    roles: [{ type: mongoose.Schema.Types.String }],
+    blocked: {type: Boolean,default:false}
 })
 
 userSchema.method({
