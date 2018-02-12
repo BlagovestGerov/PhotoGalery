@@ -192,14 +192,19 @@ a, a:visited, a:active {
   animation: up-bump 0.4s ease;
   } */
   .container{
-    background-color:   #fff5e6
+    background-color:   #e9ece5;
     
   }
   .navbar{
-    background-color: #ffcc80;
+    background-color: #c0dfd9;
+    border-color:#E7E7E7;
+    color: #7d4627;
   }
+
   .frame{
-    background-color:  #ffe6ea
+    background-color:  #b3c2bf;
+    border-color: #edd9c0;
+    border-radius: 10px;
     
   }
   .likeBtn{
