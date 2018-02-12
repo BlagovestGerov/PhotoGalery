@@ -1,4 +1,4 @@
-<h1>List</h1>
+{{!-- <h1>Home Page</h1>
 
 {{#each pictures}}
 <a href="/details?id={{this._id}}">
@@ -9,4 +9,69 @@
     <p>{{this.description}}</p>
 </fieldset>
 </a>
+{{/each}} --}}
+
+ <h1>Home Page</h1>
+
+{{#each pictures}}
+
+<div class="frame">
+
+<div class="bodyList">
+<div class="col-xs-12 col-md-6 bootstrap snippets">
+	<!-- product -->
+	<div class="product-content product-wrap clearfix">
+		<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="product-image"> 
+                        <img src="{{this.image}}" alt="picture image" class="img-responsive">
+						{{!-- <span class="tag2 hot">
+							HOT
+						</span>  --}}
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12">
+				<div class="product-deatil">
+						<h5 class="name">
+							<a href="#">
+								{{this.title}} <span>Category</span>
+							</a>
+						</h5>
+						<p class="price-container">
+							<span>{{this.location}}</span>
+						</p>
+						<span class="tag1"></span> 
+				</div>
+				<div class="description">
+					<p>{{this.description}} </p>
+				</div>
+				<div class="product-info smart-form">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6"> 
+                            <a href="/details?id={{this._id}}" class="btn btn-success">View Details</a>
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6">
+							<div class="rating">
+								<label for="stars-rating-5"><i class="fa fa-star"></i></label>
+								<label for="stars-rating-4"><i class="fa fa-star"></i></label>
+								<label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
+								<label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end product -->
+</div>
+</div>
+
+</div>
 {{/each}}
+
+
+
+
+

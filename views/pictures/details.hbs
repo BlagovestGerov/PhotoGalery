@@ -1,4 +1,4 @@
-<h1>Home Page</h1>
+{{!-- <h1>Home Page</h1>
 
 <fieldset>
     <legend>{{selectedPicture.title}}</legend>
@@ -57,4 +57,131 @@
 
 {{/if}}
 
+ --}}
 
+
+    <div  class="frame">
+ <div >
+        <div class="bodyList">
+        <div class="col-xs-12 col-md-6 bootstrap snippets">
+            <!-- product -->
+            <div class="product-content product-wrap clearfix">
+                <div class="row">
+                        <div class="col-md-5 col-sm-12 col-xs-12">
+                            <div class="product-image"> 
+                                <img src="{{selectedPicture.image}}" alt="picture image" class="img-responsive">
+                                {{!-- <span class="tag2 hot">
+                                    HOT
+                                </span>  --}}
+                            </div>
+                        </div>
+                        <div class="col-md-7 col-sm-12 col-xs-12">
+                        <div class="product-deatil">
+                                <h5 class="name">
+                                    <a href="#">
+                                        {{selectedPicture.title}} <span>Category</span>
+                                    </a>
+                                </h5>
+                                <p class="price-container">
+                                    <span>{{selectedPicture.location}}</span>
+                                </p>
+                                <span class="tag1"></span> 
+                        </div>
+                        <div class="description">
+                            <p>{{selectedPicture.description}}</p>
+                        </div>
+                        <div class="product-info smart-form">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-6"> 
+                                {{#if currentUser}}
+                                    <a href="like/{{selectedPicture._id}}" class="btn"><img class="likeBtn" src="/img/like-button-png-2.png" alt="like"></a>
+                                {{else}}
+                                    <img class="likeBtn" src="/img/like-button-png-2.png" alt="like">                       
+                                {{/if}}
+                                <span>{{selectedPicture.prop}}</span>
+                    <p>{{selectedPicture.viewCounter }}</p>
+                                </div>
+                                {{!-- <div class="col-md-6 col-sm-6 col-xs-6">
+                                    <div class="rating">
+                                        <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                        <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                        <label for="stars-rating-3"><i class="fa fa-star text-primary"></i></label>
+                                        <label for="stars-rating-2"><i class="fa fa-star text-primary"></i></label>
+                                        <label for="stars-rating-1"><i class="fa fa-star text-primary"></i></label>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end product -->
+        </div>
+    </div>
+    </div>
+
+    {{!Comments --}}
+
+
+        <div class="row">            
+			<div class="col-md-6 col-md-offset-3" >
+<h1>Comments</h1>
+    {{#each comments}}
+                			
+        <fieldset>
+        <legend>
+            <a href="/getDetails/{{this.creator}}"> <p>{{this.userName}}</p> </a>
+        </legend>
+        <p>{{this.userTitle}}</p>
+        <p>{{this.userComment}}</p>
+        <p>{{this.datePosted}}</p>
+    </fieldset>
+    {{/each}}
+
+    </div>
+     </div>
+    
+
+{{#if currentUser}}
+
+        <div class="row">            
+			<div class="col-md-6 col-md-offset-3">
+                
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form action="/comment/{{selectedPicture._id}}" method="POST" id="login-form">
+									<div class="form-group">
+                    <input type="text" name='title' placeholder="Title" id="username" tabindex="1" class="form-control" value=""/>                                    
+									</div>
+      <textarea name="comment" id="" cols="35" rows="10" placeholder="comment" class="form-control"></textarea>
+      <br>
+									{{!-- <div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Remember Me</label>
+									</div> --}}
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Add comment">
+											</div>
+										</div>
+									</div>
+									{{!-- <div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
+												</div>
+											</div>
+										</div>
+									</div> --}}
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {{/if}}
+        </div>
